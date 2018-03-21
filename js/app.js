@@ -1,3 +1,31 @@
+const cardType = [
+	'fa-diamond',
+	'fa-paper-plane-o',
+	'fa-anchor',
+	'fa-bolt',
+	'fa-cube',
+	'fa-leaf',
+	'fa-bicycle',
+	'fa-bomb'
+];
+
+const deck = document.querySelector('.deck');
+
+// newDeck() will create a new set of shuffled cards
+function newDeck(){
+	let shuffleCards = [];
+		shuffleCards = shuffleCards.concat(cardType, cardType);
+		shuffleCards = shuffle(shuffleCards);
+
+	for (let i = 0; i < shuffleCards.length; i++) {
+		const newCard = document.createElement('li');
+		newCard.appendChild(document.createElement('i')).classList.add('fa', shuffleCards[i]);
+		// class match intentionally added for visual appearance
+		// delete after adding addEventListener()
+		deck.appendChild(newCard).className = 'card match';
+	}
+}
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -12,3 +40,5 @@ function shuffle(array) {
 
     return array;
 }
+
+newDeck();
