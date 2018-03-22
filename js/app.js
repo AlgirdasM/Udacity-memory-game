@@ -26,6 +26,13 @@ function newDeck(){
 	}
 }
 
+// removeCards() will remove all cards from deck
+function removeCards() {
+	while (deck.firstChild) {
+   		deck.removeChild(deck.firstChild);
+	}
+}
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
