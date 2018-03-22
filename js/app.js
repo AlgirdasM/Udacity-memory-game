@@ -11,6 +11,7 @@ const cardType = [
 
 const deck = document.querySelector('.deck');
 const restart = document.querySelector('.restart');
+const stars = document.querySelector('.stars').getElementsByTagName('li');
 let moves = 0;
 let cardsArray = [];
 let markCards = 0;
@@ -64,6 +65,8 @@ function matchCards(newCard) {
         cardsArray = [];
         movesCount();
     }
+
+    starRating();
 }
 
 function hideCards(cardsArray){
@@ -86,6 +89,14 @@ function win(){
 	if (markCards === 8){
 		console.log('You win!');
 		markCards = 0;
+	}
+}
+
+function starRating(){
+	if (moves === 12){
+		stars[2].classList.remove('stars-color');
+	} else if (moves === 20){
+		stars[1].classList.remove('stars-color');
 	}
 }
 
