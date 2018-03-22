@@ -10,6 +10,12 @@ const cardType = [
 ];
 
 const deck = document.querySelector('.deck');
+const restart = document.querySelector('.restart');
+
+restart.addEventListener('click', function() {
+	removeCards();
+	newDeck();
+});
 
 // newDeck() will create a new set of shuffled cards
 function newDeck(){
