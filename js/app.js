@@ -21,6 +21,7 @@ restart.addEventListener('click', function() {
 	document.querySelector('.moves').textContent = moves;
 	removeCards();
 	newDeck();
+	resetStars();
 });
 
 // newDeck() will create a new set of shuffled cards
@@ -97,6 +98,12 @@ function starRating(){
 		stars[2].classList.remove('stars-color');
 	} else if (moves === 20){
 		stars[1].classList.remove('stars-color');
+	}
+}
+
+function resetStars(){
+	for (i = 0; i < stars.length; i++) {
+		stars[i].classList.add('stars-color');
 	}
 }
 
