@@ -111,3 +111,7 @@ h1 {
 .stars-color {
     color: orange;
 }
+
+.timer {
+    padding: 0 15px 0;
+}

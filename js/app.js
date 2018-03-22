@@ -12,9 +12,15 @@ const cardType = [
 const deck = document.querySelector('.deck');
 const restart = document.querySelector('.restart');
 const stars = document.querySelector('.stars').getElementsByTagName('li');
+const timerSelect = document.querySelector('.timer');
 let moves = 0;
 let cardsArray = [];
 let markCards = 0;
+let startTimer;
+let s = 0;
+let minutes;
+let seconds;
+let timerOn = false;
 
 restart.addEventListener('click', function() {
 	moves = 0;
@@ -22,6 +28,7 @@ restart.addEventListener('click', function() {
 	removeCards();
 	newDeck();
 	resetStars();
+	stopTimer();
 });
 
 // newDeck() will create a new set of shuffled cards
@@ -53,6 +60,11 @@ function matchCards(newCard) {
 	// if card have match class, ignore and quit
 	if ( newCard.className.match('match')) {
 		return;
+	}
+
+	if (timerOn == false){
+	timerOn = true;
+	timer();
 	}
 
 	newCard.classList.add('match');
@@ -108,6 +120,32 @@ function resetStars() {
 	for (i = 0; i < stars.length; i++) {
 		stars[i].classList.add('stars-color');
 	}
+}
+
+// times to count game time
+function timer() {
+	startTimer = window.setInterval(function(){
+		s = s + 1;
+		minutes = Math.floor(s / 60);
+		seconds = s - minutes * 60;
+
+		if (seconds < 10) {
+        	seconds = "0" + seconds;
+      	}
+
+      	if (minutes < 10) {
+        	minutes = "0" + minutes;
+      	}
+
+		timerSelect.textContent = 'Time: ' + minutes + ':' + seconds;
+	}, 1000);
+}
+
+function stopTimer(){
+	clearInterval(startTimer);
+	timerOn = false;
+	s = 0;
+	timerSelect.textContent = 'Time: 00:00';
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
