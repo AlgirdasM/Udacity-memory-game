@@ -53,11 +53,9 @@ function matchCards(newCard) {
 
     if (cardsArray.length > 1 && cardsArray[0].firstChild.className === cardsArray[1].firstChild.className) {
         cardsArray = [];
-        console.log('matched!');
     } else if (cardsArray.length > 1) {
     	setTimeout(hideCards.bind(null, cardsArray), 500);
         cardsArray = [];
-        console.log('reset');
     }
 }
 
