@@ -35,7 +35,8 @@ function newDeck() {
 		newCard.appendChild(document.createElement('i')).classList.add('fa', shuffleCards[i]);
 		newCard.addEventListener('click', function(){
 			matchCards(newCard);
-		});
+		})
+
 		deck.appendChild(newCard).className = 'card';
 	}
 }
@@ -70,38 +71,40 @@ function matchCards(newCard) {
     starRating();
 }
 
-function hideCards(cardsArray){
-	    cardsArray[0].classList.remove('match');
-        cardsArray[1].classList.remove('match');
+function hideCards(cardsArray) {
+	cardsArray[0].classList.remove('match');
+    cardsArray[1].classList.remove('match');
 }
 
-function movesCount(){
+function movesCount() {
 	moves++;
 	document.querySelector('.moves').textContent = moves;
-	if (moves === 1){
+
+	if (moves === 1) {
 		document.querySelector('#movesStr').textContent = 'Move';
 	} else if (moves === 2) {
 		document.querySelector('#movesStr').textContent = 'Moves';
 	}
 }
 
-function win(){
+function win() {
 	markCards++;
-	if (markCards === 8){
+
+	if (markCards === 8) {
 		console.log('You win!');
 		markCards = 0;
 	}
 }
 
-function starRating(){
-	if (moves === 12){
+function starRating() {
+	if (moves === 12) {
 		stars[2].classList.remove('stars-color');
-	} else if (moves === 20){
+	} else if (moves === 20) {
 		stars[1].classList.remove('stars-color');
 	}
 }
 
-function resetStars(){
+function resetStars() {
 	for (i = 0; i < stars.length; i++) {
 		stars[i].classList.add('stars-color');
 	}
