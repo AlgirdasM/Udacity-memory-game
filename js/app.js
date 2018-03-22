@@ -28,7 +28,7 @@ function newDeck(){
 		newCard.appendChild(document.createElement('i')).classList.add('fa', shuffleCards[i]);
 		// class match intentionally added for visual appearance
 		// delete after adding addEventListener()
-		deck.appendChild(newCard).className = 'card match';
+		deck.appendChild(newCard).className = 'card';
 	}
 }
 
