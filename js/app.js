@@ -55,11 +55,15 @@ function matchCards(newCard) {
         cardsArray = [];
         console.log('matched!');
     } else if (cardsArray.length > 1) {
-    	cardsArray[0].classList.remove('match');
-        cardsArray[1].classList.remove('match');
+    	setTimeout(hideCards.bind(null, cardsArray), 500);
         cardsArray = [];
         console.log('reset');
     }
+}
+
+function hideCards(cardsArray){
+	    cardsArray[0].classList.remove('match');
+        cardsArray[1].classList.remove('match');
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
