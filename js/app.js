@@ -11,9 +11,12 @@ const cardType = [
 
 const deck = document.querySelector('.deck');
 const restart = document.querySelector('.restart');
+let moves = 0;
 let cardsArray = [];
 
 restart.addEventListener('click', function() {
+	moves = 0;
+	document.querySelector('.moves').textContent = moves;
 	removeCards();
 	newDeck();
 });
@@ -53,15 +56,27 @@ function matchCards(newCard) {
 
     if (cardsArray.length > 1 && cardsArray[0].firstChild.className === cardsArray[1].firstChild.className) {
         cardsArray = [];
+        movesCount();
     } else if (cardsArray.length > 1) {
     	setTimeout(hideCards.bind(null, cardsArray), 500);
         cardsArray = [];
+        movesCount();
     }
 }
 
 function hideCards(cardsArray){
 	    cardsArray[0].classList.remove('match');
         cardsArray[1].classList.remove('match');
+}
+
+function movesCount(){
+	moves++;
+	document.querySelector('.moves').textContent = moves;
+	if (moves === 1){
+		document.querySelector('#movesStr').textContent = 'Move';
+	} else if (moves === 2) {
+		document.querySelector('#movesStr').textContent = 'Moves';
+	}
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
