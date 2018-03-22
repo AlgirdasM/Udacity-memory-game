@@ -11,6 +11,7 @@ const cardType = [
 
 const deck = document.querySelector('.deck');
 const restart = document.querySelector('.restart');
+let cardsArray = [];
 
 restart.addEventListener('click', function() {
 	removeCards();
@@ -18,7 +19,7 @@ restart.addEventListener('click', function() {
 });
 
 // newDeck() will create a new set of shuffled cards
-function newDeck(){
+function newDeck() {
 	let shuffleCards = [];
 		shuffleCards = shuffleCards.concat(cardType, cardType);
 		shuffleCards = shuffle(shuffleCards);
@@ -27,7 +28,7 @@ function newDeck(){
 		const newCard = document.createElement('li');
 		newCard.appendChild(document.createElement('i')).classList.add('fa', shuffleCards[i]);
 		newCard.addEventListener('click', function(){
-			newCard.classList.add('match');
+			matchCards(newCard);
 		});
 		deck.appendChild(newCard).className = 'card';
 	}
@@ -38,6 +39,27 @@ function removeCards() {
 	while (deck.firstChild) {
    		deck.removeChild(deck.firstChild);
 	}
+}
+
+// match function will match two cards, hide if not the same
+function matchCards(newCard) {
+	// if card have match class, ignore and quit
+	if ( newCard.className.match('match')) {
+		return;
+	}
+
+	newCard.classList.add('match');
+    cardsArray.push(newCard);
+
+    if (cardsArray.length > 1 && cardsArray[0].firstChild.className === cardsArray[1].firstChild.className) {
+        cardsArray = [];
+        console.log('matched!');
+    } else if (cardsArray.length > 1) {
+    	cardsArray[0].classList.remove('match');
+        cardsArray[1].classList.remove('match');
+        cardsArray = [];
+        console.log('reset');
+    }
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
