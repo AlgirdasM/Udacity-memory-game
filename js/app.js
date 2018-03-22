@@ -23,6 +23,7 @@ let seconds;
 let timerOn = false;
 
 restart.addEventListener('click', function() {
+	cardsArray = [];
 	moves = 0;
 	document.querySelector('.moves').textContent = moves;
 	removeCards();
