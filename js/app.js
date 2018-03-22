@@ -13,6 +13,7 @@ const deck = document.querySelector('.deck');
 const restart = document.querySelector('.restart');
 let moves = 0;
 let cardsArray = [];
+let markCards = 0;
 
 restart.addEventListener('click', function() {
 	moves = 0;
@@ -57,6 +58,7 @@ function matchCards(newCard) {
     if (cardsArray.length > 1 && cardsArray[0].firstChild.className === cardsArray[1].firstChild.className) {
         cardsArray = [];
         movesCount();
+        win();
     } else if (cardsArray.length > 1) {
     	setTimeout(hideCards.bind(null, cardsArray), 500);
         cardsArray = [];
@@ -76,6 +78,14 @@ function movesCount(){
 		document.querySelector('#movesStr').textContent = 'Move';
 	} else if (moves === 2) {
 		document.querySelector('#movesStr').textContent = 'Moves';
+	}
+}
+
+function win(){
+	markCards++;
+	if (markCards === 8){
+		console.log('You win!');
+		markCards = 0;
 	}
 }
 
