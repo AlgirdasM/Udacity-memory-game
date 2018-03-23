@@ -125,12 +125,8 @@ function hideCards(cardsArray) {
 function movesCount() {
 	moves++;
 	document.querySelector('.moves').textContent = moves;
-
-	if (moves === 1) {
-		document.querySelector('#movesStr').textContent = 'Move';
-	} else if (moves === 2) {
-		document.querySelector('#movesStr').textContent = 'Moves';
-	}
+	plural = moves === 1 ? '' : 's';
+	document.querySelector('#movesStr').textContent = `Move${plural}`;
 }
 
 // if all 16 cards are matched, update modal and restart game
@@ -140,13 +136,7 @@ function win() {
 	if (markCards === 8) {
 		console.log('You win!');
 		starsCount = document.getElementsByClassName('stars-color').length;
-
-		if (starsCount === 1){
-			plural = '';
-		} else {
-			plural = 's';
-		}
-
+		plural = starsCount === 1 ? '' : 's';
 		modal.querySelector('.win-text').textContent = `With ${moves} moves and ${starsCount} star${plural}! Your time was ${minutes}:${seconds}`;
 		modal.style.display = 'block';
 		restartGame();
@@ -175,15 +165,8 @@ function timer() {
 		s = s + 1;
 		minutes = Math.floor(s / 60);
 		seconds = s - minutes * 60;
-
-		if (seconds < 10) {
-        	seconds = "0" + seconds;
-      	}
-
-      	if (minutes < 10) {
-        	minutes = "0" + minutes;
-      	}
-
+		seconds = seconds < 10 ? "0" + seconds : seconds;
+		minutes = minutes < 10 ? "0" + minutes : minutes;
 		timerSelect.textContent = 'Time: ' + minutes + ':' + seconds;
 	}, 1000);
 }
