@@ -99,26 +99,23 @@ function matchCards(newCard) {
         movesCount();
         win();
     }
-    // don't match logic, animation
+    // don't match logic, animation and hide cards
     else if (cardsArray.length > 1) {
-    	setTimeout(hideCards.bind(null, cardsArray), 500);
     	setTimeout(function(){
-    		cardsArray[0].classList.remove('match', 'red', 'animated', 'swing');
-    		cardsArray[1].classList.remove('match', 'red', 'animated', 'swing');
-    		cardsArray = [];
-    	}, 1000);
+    		setTimeout(function(){
+	    		cardsArray[0].classList.remove('match', 'red', 'animated', 'swing');
+	    		cardsArray[1].classList.remove('match', 'red', 'animated', 'swing');
+	    		cardsArray = [];
+    		}, 500);
+			cardsArray[0].classList.remove('animated', 'flip');
+		    cardsArray[1].classList.remove('animated', 'flip');
+		    cardsArray[0].classList.add('red', 'animated', 'swing');
+		    cardsArray[1].classList.add('red', 'animated', 'swing');
+    	}, 500);
         movesCount();
     }
 
     starRating();
-}
-
-// animate and hide cards when they don't match
-function hideCards(cardsArray) {
-	cardsArray[0].classList.remove('animated', 'flip');
-    cardsArray[1].classList.remove('animated', 'flip');
-    cardsArray[0].classList.add('red', 'animated', 'swing');
-    cardsArray[1].classList.add('red', 'animated', 'swing');
 }
 
 // count moves and update textContent
