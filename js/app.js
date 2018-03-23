@@ -14,6 +14,7 @@ const restart = document.querySelector('.restart');
 const stars = document.querySelector('.stars').getElementsByTagName('li');
 const timerSelect = document.querySelector('.timer');
 const playAgainButton = document.getElementById('play-again-button');
+const modal = document.getElementById('modal-container');
 let moves = 0;
 let cardsArray = [];
 let markCards = 0;
@@ -35,7 +36,7 @@ restart.addEventListener('click', function() {
 
 // hide modal
 playAgainButton.addEventListener('click', function() {
-	document.getElementById('modal-container').style.display = 'none';
+	modal.style.display = 'none';
 });
 
 // newDeck() will create a new set of shuffled cards
@@ -112,8 +113,8 @@ function win() {
 	if (markCards === 8) {
 		console.log('You win!');
 		markCards = 0;
+		modal.style.display = 'block';
 	}
-
 	stopTimer();
 }
 
