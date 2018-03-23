@@ -25,19 +25,26 @@ let seconds;
 let timerOn = false;
 
 restart.addEventListener('click', function() {
-	cardsArray = [];
-	moves = 0;
-	document.querySelector('.moves').textContent = moves;
-	removeCards();
-	newDeck();
-	resetStars();
-	stopTimer();
+	restartGame();
 });
 
 // hide modal
 playAgainButton.addEventListener('click', function() {
 	modal.style.display = 'none';
 });
+
+function restartGame() {
+	moves = 0;
+	cardsArray = [];
+	markCards = 0;
+	s = 0;
+	timerOn = false;
+	document.querySelector('.moves').textContent = moves;
+	stopTimer();
+	resetStars();
+	removeCards();
+	newDeck();
+}
 
 // newDeck() will create a new set of shuffled cards
 function newDeck() {
@@ -112,9 +119,8 @@ function win() {
 
 	if (markCards === 8) {
 		console.log('You win!');
-		stopTimer();
-		markCards = 0;
 		modal.style.display = 'block';
+		restartGame();
 	}
 }
 
@@ -153,8 +159,6 @@ function timer() {
 
 function stopTimer(){
 	clearInterval(startTimer);
-	timerOn = false;
-	s = 0;
 	timerSelect.textContent = 'Time: 00:00';
 }
 
