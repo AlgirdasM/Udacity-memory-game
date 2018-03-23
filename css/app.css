@@ -16,16 +16,29 @@ body {
     padding: 0;
 }
 
+img,
+embed,
+object,
+video {
+    margin: 0;
+    max-width: 100%;
+}
+
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
 .container {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 0 20px 0;
+    transition: 1s padding ease-in-out, 1s width ease-in-out;
+    -webkit-transition: 1s padding ease-in-out, 1s width ease-in-out;
+    margin: auto;
 }
 
 h1 {
@@ -33,27 +46,35 @@ h1 {
     font-weight: 300;
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 /*
  * Styles for the deck of cards
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
+    width: 100%;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 3em;
+    margin: 1em 0 3em;
+    -webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.4);
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
+    min-width: 48px;
+    width: 22%;
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
@@ -62,7 +83,18 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 5px 0 5px;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+/*
+* Make square
+*/
+
+.deck .card:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
 }
 
 .deck .card.open {
@@ -87,15 +119,19 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 100%;
+    padding: 0 10px 0;
     margin-bottom: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .score-panel .stars {
-    margin: 0;
     padding: 0;
     display: inline-block;
-    margin: 0 5px 0 0;
+    margin: 0 10px 0 0;
 }
 
 .score-panel .stars li {
@@ -104,8 +140,18 @@ h1 {
 }
 
 .score-panel .restart {
-    float: right;
+    width: 48px;
+    height: 48px;
+    background: #f9fafb;
+    color: #2e3d49;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    -webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.2);
 }
 
 .stars-color {
@@ -113,7 +159,7 @@ h1 {
 }
 
 .timer {
-    padding: 0 15px 0;
+    padding: 0 10px 0;
 }
 
 #modal-container {
@@ -166,4 +212,19 @@ h1 {
 
 .green {
     background: #20c944 !important;
+}
+
+.moves {
+    padding: 0 3px 0 0;
+}
+
+.left-column {
+    width: 80%;
+}
+
+.right-column {
+    width: 20%;
+    margin: 0 13px 0 0;
+    display: flex;
+    justify-content: flex-end;
 }

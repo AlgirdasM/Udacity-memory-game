@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matching Game</title>
     <meta name="description" content="">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
@@ -17,17 +20,21 @@
         </header>
 
         <section class="score-panel">
-        	<ul class="stars">
-        		<li class="stars-color"><i class="fa fa-star"></i></li>
-        		<li class="stars-color"><i class="fa fa-star"></i></li>
-        		<li class="stars-color"><i class="fa fa-star"></i></li>
-        	</ul>
+            <div class="left-column">
+            	<ul class="stars">
+            		<li class="stars-color"><i class="fa fa-star"></i></li>
+            		<li class="stars-color"><i class="fa fa-star"></i></li>
+            		<li class="stars-color"><i class="fa fa-star"></i></li>
+            	</ul>
 
-        	<span class="moves">0</span> <span id="movesStr">Moves</span>
-            <span class="timer">Time: 00:00</span>
-            <div class="restart">
-        		<i class="fa fa-repeat"></i>
-        	</div>
+            	<span class="moves">0</span> <span id="movesStr">Moves</span>
+                <span class="timer">Time: 00:00</span>
+            </div>
+            <div class="right-column">
+                <div class="restart">
+            		<i class="fa fa-repeat"></i>
+            	</div>
+            </div>
         </section>
 
         <ul class="deck">
