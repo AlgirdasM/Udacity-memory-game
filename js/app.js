@@ -112,10 +112,10 @@ function win() {
 
 	if (markCards === 8) {
 		console.log('You win!');
+		stopTimer();
 		markCards = 0;
 		modal.style.display = 'block';
 	}
-	stopTimer();
 }
 
 function starRating() {
