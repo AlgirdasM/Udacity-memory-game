@@ -84,16 +84,24 @@ function matchCards(newCard) {
 	timer();
 	}
 
-	newCard.classList.add('match');
+	newCard.classList.add('match', 'flip', 'animated');
     cardsArray.push(newCard);
 
     if (cardsArray.length > 1 && cardsArray[0].firstChild.className === cardsArray[1].firstChild.className) {
+    	cardsArray[0].classList.remove('animated', 'flip');
+    	cardsArray[1].classList.remove('animated', 'flip');
+        cardsArray[0].classList.add('animated', 'jello', 'green');
+    	cardsArray[1].classList.add('animated', 'jello', 'green');
         cardsArray = [];
         movesCount();
         win();
     } else if (cardsArray.length > 1) {
     	setTimeout(hideCards.bind(null, cardsArray), 500);
-        cardsArray = [];
+    	setTimeout(function(){
+    		cardsArray[0].classList.remove('match', 'red', 'animated', 'swing');
+    		cardsArray[1].classList.remove('match', 'red', 'animated', 'swing');
+    		cardsArray = [];
+    	}, 1000);
         movesCount();
     }
 
@@ -101,8 +109,10 @@ function matchCards(newCard) {
 }
 
 function hideCards(cardsArray) {
-	cardsArray[0].classList.remove('match');
-    cardsArray[1].classList.remove('match');
+	cardsArray[0].classList.remove('animated', 'flip');
+    cardsArray[1].classList.remove('animated', 'flip');
+    cardsArray[0].classList.add('red', 'animated', 'swing');
+    cardsArray[1].classList.add('red', 'animated', 'swing');
 }
 
 function movesCount() {

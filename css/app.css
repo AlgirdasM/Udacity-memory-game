@@ -159,3 +159,11 @@ h1 {
 #modal-container .win-text {
     padding: 10px 0 30px;
 }
+
+.red {
+    background: #c92020 !important;
+}
+
+.green {
+    background: #20c944 !important;
+}

@@ -14,4 +14,5 @@ The game ends once all cards have been correctly matched.
 * [Udacity Front-End Web Developer Nanodegree Program](https://udacity.com/course/front-end-web-developer-nanodegree--nd001)
 * [Google for this Scholarship!](https://developers.google.com/training/)
 * [Google Fonts](https://fonts.google.com/)
-* [Font Awesome Free is free, open source, and GPL friendly](https://fontawesome.com/license)
+* [Font Awesome Free](https://fontawesome.com/license)
+* [Animate.css](https://daneden.github.io/animate.css/)
