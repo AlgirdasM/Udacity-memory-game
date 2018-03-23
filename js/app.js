@@ -23,6 +23,8 @@ let s = 0;
 let minutes;
 let seconds;
 let timerOn = false;
+let starsCount;
+let plural;
 
 restart.addEventListener('click', function() {
 	restartGame();
@@ -119,6 +121,15 @@ function win() {
 
 	if (markCards === 8) {
 		console.log('You win!');
+		starsCount = document.getElementsByClassName('stars-color').length;
+
+		if (starsCount === 1){
+			plural = '';
+		} else {
+			plural = 's';
+		}
+
+		modal.querySelector('.win-text').textContent = `With ${moves} moves and ${starsCount} star${plural}! Your time was ${minutes}:${seconds}`;
 		modal.style.display = 'block';
 		restartGame();
 	}

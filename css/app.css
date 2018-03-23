@@ -155,3 +155,7 @@ h1 {
     -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.2);
     box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.2);
 }
+
+#modal-container .win-text {
+    padding: 10px 0 30px;
+}
