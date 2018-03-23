@@ -13,6 +13,7 @@ const deck = document.querySelector('.deck');
 const restart = document.querySelector('.restart');
 const stars = document.querySelector('.stars').getElementsByTagName('li');
 const timerSelect = document.querySelector('.timer');
+const playAgainButton = document.getElementById('play-again-button');
 let moves = 0;
 let cardsArray = [];
 let markCards = 0;
@@ -30,6 +31,11 @@ restart.addEventListener('click', function() {
 	newDeck();
 	resetStars();
 	stopTimer();
+});
+
+// hide modal
+playAgainButton.addEventListener('click', function() {
+	document.getElementById('modal-container').style.display = 'none';
 });
 
 // newDeck() will create a new set of shuffled cards
