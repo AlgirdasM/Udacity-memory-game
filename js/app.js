@@ -107,6 +107,8 @@ function win() {
 		console.log('You win!');
 		markCards = 0;
 	}
+
+	stopTimer();
 }
 
 function starRating() {
