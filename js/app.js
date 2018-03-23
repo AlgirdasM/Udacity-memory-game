@@ -75,7 +75,7 @@ function removeCards() {
 // match function will match two cards, hide if not the same
 function matchCards(newCard) {
 	// if card have match class, ignore and quit
-	if ( newCard.className.match('match')) {
+	if ( newCard.className.match('match') || cardsArray.length === 2 ) {
 		return;
 	}
 
