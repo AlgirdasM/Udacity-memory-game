@@ -1,15 +1,15 @@
 @media screen and (max-width: 360px) {
-	.score-panel .stars {
-		display: block;
-		padding: 0 0 10px;
-	}
+    .score-panel .stars {
+        display: block;
+        padding: 0 0 10px;
+    }
 }
 
 @media screen and (min-width: 630px) {
-	.container {
-		width: 600px;
-		margin: auto;
-		transition: 1s padding ease-in-out, 1s width ease-in-out;
+    .container {
+        width: 600px;
+        margin: auto;
+        transition: 1s padding ease-in-out, 1s width ease-in-out;
         -webkit-transition: 1s padding ease-in-out, 1s width ease-in-out;
-	}
+    }
 }

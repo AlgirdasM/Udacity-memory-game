@@ -26,15 +26,17 @@ let timerOn = false;
 let starsCount;
 let plural;
 
+// restart game if restart button is clicked
 restart.addEventListener('click', function() {
 	restartGame();
 });
 
-// hide modal
+// hide modal if Play again button is pushed
 playAgainButton.addEventListener('click', function() {
 	modal.style.display = 'none';
 });
 
+// restart game and reset values
 function restartGame() {
 	moves = 0;
 	cardsArray = [];
@@ -61,7 +63,7 @@ function newDeck() {
 			matchCards(newCard);
 		})
 
-		deck.appendChild(newCard).className = 'card';
+	deck.appendChild(newCard).className = 'card';
 	}
 }
 
@@ -74,19 +76,20 @@ function removeCards() {
 
 // match function will match two cards, hide if not the same
 function matchCards(newCard) {
-	// if card have match class, ignore and quit
+	// if card have match class or there are more than 2 cards in array, ignore and quit
 	if ( newCard.className.match('match') || cardsArray.length === 2 ) {
 		return;
 	}
 
 	if (timerOn == false){
-	timerOn = true;
-	timer();
+		timerOn = true;
+		timer();
 	}
 
 	newCard.classList.add('match', 'flip', 'animated');
     cardsArray.push(newCard);
 
+    // winning logic, animation
     if (cardsArray.length > 1 && cardsArray[0].firstChild.className === cardsArray[1].firstChild.className) {
     	cardsArray[0].classList.remove('animated', 'flip');
     	cardsArray[1].classList.remove('animated', 'flip');
@@ -95,7 +98,9 @@ function matchCards(newCard) {
         cardsArray = [];
         movesCount();
         win();
-    } else if (cardsArray.length > 1) {
+    }
+    // don't match logic, animation
+    else if (cardsArray.length > 1) {
     	setTimeout(hideCards.bind(null, cardsArray), 500);
     	setTimeout(function(){
     		cardsArray[0].classList.remove('match', 'red', 'animated', 'swing');
@@ -108,6 +113,7 @@ function matchCards(newCard) {
     starRating();
 }
 
+// animate and hide cards when they don't match
 function hideCards(cardsArray) {
 	cardsArray[0].classList.remove('animated', 'flip');
     cardsArray[1].classList.remove('animated', 'flip');
@@ -115,6 +121,7 @@ function hideCards(cardsArray) {
     cardsArray[1].classList.add('red', 'animated', 'swing');
 }
 
+// count moves and update textContent
 function movesCount() {
 	moves++;
 	document.querySelector('.moves').textContent = moves;
@@ -126,6 +133,7 @@ function movesCount() {
 	}
 }
 
+// if all 16 cards are matched, update modal and restart game
 function win() {
 	markCards++;
 
@@ -145,6 +153,7 @@ function win() {
 	}
 }
 
+// give star rating to the game
 function starRating() {
 	if (moves === 12) {
 		stars[2].classList.remove('stars-color');
@@ -153,13 +162,14 @@ function starRating() {
 	}
 }
 
+// reset stars
 function resetStars() {
 	for (i = 0; i < stars.length; i++) {
 		stars[i].classList.add('stars-color');
 	}
 }
 
-// times to count game time
+// timer() to count game time
 function timer() {
 	startTimer = window.setInterval(function(){
 		s = s + 1;
@@ -178,6 +188,7 @@ function timer() {
 	}, 1000);
 }
 
+// Stop timer
 function stopTimer(){
 	clearInterval(startTimer);
 	timerSelect.textContent = 'Time: 00:00';
@@ -198,4 +209,5 @@ function shuffle(array) {
     return array;
 }
 
+// Create new deck on load
 newDeck();

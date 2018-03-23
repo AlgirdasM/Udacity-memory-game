@@ -25,7 +25,8 @@ video {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff url('../img/geometry2.png');
+    /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
@@ -67,9 +68,9 @@ header {
     justify-content: space-between;
     align-items: center;
     margin: 1em 0 3em;
-    -webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.4);
-    -moz-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.4);
-    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.4);
 }
 
 .deck .card {
@@ -149,9 +150,9 @@ header {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    -webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.2);
-    -moz-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.2);
-    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .stars-color {
@@ -197,9 +198,9 @@ header {
 
 #modal-container #play-again-button:hover {
     background: linear-gradient(180deg, #0eb631 0%, #009920 100%);
-    -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.2);
-    -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.2);
-    box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.2);
+    -webkit-box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 #modal-container .win-text {
