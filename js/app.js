@@ -132,7 +132,6 @@ function win() {
 	markCards++;
 
 	if (markCards === 8) {
-		console.log('You win!');
 		starsCount = document.getElementsByClassName('stars-color').length;
 		plural = starsCount === 1 ? '' : 's';
 		modal.querySelector('.win-text').textContent = `With ${moves} moves and ${starsCount} star${plural}! Your time was ${minutes}:${seconds}`;
