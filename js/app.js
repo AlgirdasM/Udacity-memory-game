@@ -135,8 +135,10 @@ function win() {
 		starsCount = document.getElementsByClassName('stars-color').length;
 		plural = starsCount === 1 ? '' : 's';
 		modal.querySelector('.win-text').textContent = `With ${moves} moves and ${starsCount} star${plural}! Your time was ${minutes}:${seconds}`;
-		modal.style.display = 'block';
-		restartGame();
+		setTimeout(function(){
+			modal.style.display = 'block';
+			restartGame();
+		}, 500);
 	}
 }
 
