@@ -136,6 +136,10 @@ function win() {
 		plural = starsCount === 1 ? '' : 's';
 		modal.querySelector('.win-text').innerHTML = `With ${moves} moves and ${starsCount} star${plural}! <span class="block">Your time was ${minutes}:${seconds}</span>`;
 		setTimeout(function(){
+			modal.querySelector('.check').classList.add('animated', 'flip');
+			setTimeout(function(){
+				modal.querySelector('.check').classList.remove('animated', 'flip');
+			}, 500);
 			modal.style.display = 'block';
 			restartGame();
 		}, 500);
