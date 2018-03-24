@@ -134,7 +134,7 @@ function win() {
 	if (markCards === 8) {
 		starsCount = document.getElementsByClassName('stars-color').length;
 		plural = starsCount === 1 ? '' : 's';
-		modal.querySelector('.win-text').textContent = `With ${moves} moves and ${starsCount} star${plural}! Your time was ${minutes}:${seconds}`;
+		modal.querySelector('.win-text').innerHTML = `With ${moves} moves and ${starsCount} star${plural}! <span class="block">Your time was ${minutes}:${seconds}</span>`;
 		setTimeout(function(){
 			modal.style.display = 'block';
 			restartGame();

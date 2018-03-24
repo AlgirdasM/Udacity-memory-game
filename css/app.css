@@ -183,10 +183,12 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 #modal-container #play-again-button {
     width: 200px;
+    margin: 30px 0 0;
     padding: 10px 30px 10px 30px;
     background: linear-gradient(180deg, #2a8623 0%, #007018 100%);
     border-radius: 4px;
@@ -204,7 +206,7 @@ header {
 }
 
 #modal-container .win-text {
-    padding: 10px 0 30px;
+    padding: 10px 0 0;
 }
 
 .red {
@@ -233,4 +235,8 @@ header {
 .check {
     font-size: 66px;
     color: orange;
+}
+
+.block {
+    display: inline;
 }
