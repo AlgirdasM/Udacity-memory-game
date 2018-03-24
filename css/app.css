@@ -229,3 +229,8 @@ header {
     display: flex;
     justify-content: flex-end;
 }
+
+.check {
+    font-size: 66px;
+    color: orange;
+}
