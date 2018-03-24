@@ -91,10 +91,10 @@ function matchCards(newCard) {
 
     // winning logic, animation
     if (cardsArray.length > 1 && cardsArray[0].firstChild.className === cardsArray[1].firstChild.className) {
-    	cardsArray[0].classList.remove('animated', 'flip');
-    	cardsArray[1].classList.remove('animated', 'flip');
-        cardsArray[0].classList.add('animated', 'jello', 'green');
-    	cardsArray[1].classList.add('animated', 'jello', 'green');
+    	for (const card of cardsArray){
+	    	card.classList.remove('animated', 'flip');
+	        card.classList.add('animated', 'jello', 'green');
+    	}
         cardsArray = [];
         movesCount();
         win();
@@ -103,14 +103,15 @@ function matchCards(newCard) {
     else if (cardsArray.length > 1) {
     	setTimeout(function(){
     		setTimeout(function(){
-	    		cardsArray[0].classList.remove('match', 'red', 'animated', 'swing');
-	    		cardsArray[1].classList.remove('match', 'red', 'animated', 'swing');
+    			for (const card of cardsArray){
+	    			card.classList.remove('match', 'red', 'animated', 'swing');
+	    		}
 	    		cardsArray = [];
     		}, 500);
-			cardsArray[0].classList.remove('animated', 'flip');
-		    cardsArray[1].classList.remove('animated', 'flip');
-		    cardsArray[0].classList.add('red', 'animated', 'swing');
-		    cardsArray[1].classList.add('red', 'animated', 'swing');
+    		for (const card of cardsArray){
+				card.classList.remove('animated', 'flip');
+			    card.classList.add('red', 'animated', 'swing');
+			}
     	}, 500);
         movesCount();
     }
@@ -151,8 +152,8 @@ function starRating() {
 
 // reset stars
 function resetStars() {
-	for (i = 0; i < stars.length; i++) {
-		stars[i].classList.add('stars-color');
+	for (const star of stars) {
+		star.classList.add('stars-color');
 	}
 }
 
