@@ -11,7 +11,7 @@ The game ends once all cards have been correctly matched.
 2. Open index.html file to view the project in your browser.
 
 ## Play it online
-[Click here to play it online!](https://algirdasm.github.io/Udacity-memory-game/)
+[Click here to play it online!](https://algirdasm.github.io/memory-game/)
 
 ## Licenses and huge thank you
 * [Udacity Front-End Web Developer Nanodegree Program](https://udacity.com/course/front-end-web-developer-nanodegree--nd001)
